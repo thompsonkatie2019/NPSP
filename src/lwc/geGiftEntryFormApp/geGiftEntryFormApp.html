@@ -22,7 +22,8 @@
         <template if:true={isBatchMode}>
             <c-ge-batch-gift-entry-table
                     batch-id={recordId}
-                    onloaddata={handleLoadData}>
+                    onloaddata={handleLoadData}
+                    ontogglemodal={handleToggleModal}>
             </c-ge-batch-gift-entry-table>
         </template>
     </template>

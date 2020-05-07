@@ -75,6 +75,22 @@ export default class GeGiftEntryFormApp extends NavigationMixin(LightningElement
             this.sObjectName === DATA_IMPORT_BATCH_OBJECT.objectApiName;
     }
 
+    /*******************************************************************************
+    * @description Public method for receiving modal related events from geListView.
+    *
+    * @param {object} modalData: Event object containing the action and modal payload.
+    * component chain: utilDualListbox -> geListView -> here.
+    */
+    @api
+    notify(event) {
+        if (event.action === 'save') {
+            const component = this.template.querySelector(`c-ge-batch-gift-entry-table`);
+            if (component) {
+                component.notify(event);
+            }
+        }
+    }
+
     connectedCallback() {
         getPaymentTransactionStatusValues()
             .then(response => {

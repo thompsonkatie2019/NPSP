@@ -59,7 +59,8 @@ export default class geTemplateBuilder extends NavigationMixin(LightningElement)
     TabEnums = Object.freeze({
         INFO_TAB: this.CUSTOM_LABELS.geTabTemplateInfo,
         FORM_FIELDS_TAB: this.CUSTOM_LABELS.geTabFormFields,
-        BATCH_HEADER_TAB: this.CUSTOM_LABELS.geTabBatchHeader
+        BATCH_HEADER_TAB: this.CUSTOM_LABELS.geTabBatchHeader,
+        BATCH_TABLE_HEADERS: 'Batch Table Headers'
     });
 
     @api formTemplateRecordId;
@@ -314,6 +315,8 @@ export default class geTemplateBuilder extends NavigationMixin(LightningElement)
             case this.TabEnums.BATCH_HEADER_TAB:
                 this.activeTab = this.TabEnums.BATCH_HEADER_TAB;
                 break;
+            case this.TabEnums.BATCH_TABLE_HEADERS:
+                this.activeTab = this.TabEnums.BATCH_TABLE_HEADERS;
             default:
                 this.activeTab = this.TabEnums.INFO_Tab;
         }

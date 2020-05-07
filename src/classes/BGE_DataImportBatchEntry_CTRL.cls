@@ -90,6 +90,7 @@ public with sharing class BGE_DataImportBatchEntry_CTRL {
         dataImportModel.labels = getBatchDataImportLabels();
         dataImportModel.isNamespaced = String.isNotBlank(UTIL_Namespace.getNamespace());
         dataImportModel.totalCountOfRows = getDataImportBatchTotalCount(batchId);
+        dataImportModel.batchTableHeaders = getBatchTableHeaders(batchId);
 
         AggregateResult[] aggResult = getDataImportBatchTotalAmount(batchId);
         dataImportModel.totalRowAmount = (Decimal)aggResult[0].get('amount');
@@ -395,6 +396,15 @@ public with sharing class BGE_DataImportBatchEntry_CTRL {
     }
 
     /*******************************************************************************************************
+    * @description Gets the count of Data Import Batch records in a particular batch
+    * @param recordId the ID of the NPSP_Data_Import_Batch__c
+    * @return Integer count of batch records
+    */
+    private static String getBatchTableHeaders(Id recordId) {
+        return [SELECT Batch_Table_Headers__c FROM DataImportBatch__c WHERE Id =: recordId].Batch_Table_Headers__c;
+    }
+
+    /*******************************************************************************************************
     * @description prepare the data import record for dry run by clearing certain fields or retaining them
     * based on if user has already selected a match, or if they want to let matching run. Either way, we want to use Dry Run
     * to check for potential errors.
@@ -525,6 +535,7 @@ public with sharing class BGE_DataImportBatchEntry_CTRL {
         @AuraEnabled public Decimal totalRowAmount;
         @AuraEnabled public List<UTIL_LightningComponentSupport.Notice> notices =
                 new List<UTIL_LightningComponentSupport.Notice>();
+        @AuraEnabled public String batchTableHeaders;
 
         /*******************************************************************************************************
         * @description Retrieves the related list of columns for the BGE interface

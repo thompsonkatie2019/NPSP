@@ -123,6 +123,18 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Batch_Table_Headers__c</fullName>
+        <description></description>
+        <externalId>false</externalId>
+        <inlineHelpText></inlineHelpText>
+        <label>Batch Table Headers</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Batch_Description__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>An optional description about this batch.</inlineHelpText>

@@ -34,9 +34,11 @@ export default class utilDualListbox extends LightningElement {
     * a dedicated listener event name is provided otherwise dispatches a CustomEvent.
     */
     handleSave() {
+        console.log('*** handleSave');
         const payload = { values: this.values, name: this.name };
         const detail = { receiverComponent: this.targetComponentName, action: 'save', payload: payload };
         if (this.dedicatedListenerEventName) {
+            console.log('firing dedicated listener event...', detail);
             fireEvent(this.pageRef, this.dedicatedListenerEventName, detail);
         } else {
             this.dispatchEvent(new CustomEvent('save', { detail: payload }));

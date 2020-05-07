@@ -56,6 +56,21 @@
                 }
             }
         );
+    },
+
+    handleBatchGiftEntryTableEvent: function(component, event) {
+        const details = event.getParams('detail');
+
+        if (details) {
+            component.find('giftEntryFormApp').notify(details);
+        }
+
+        const modalReference = component.get('v.modal');
+        if (modalReference) {
+            modalReference.then(modal => {
+                modal.close();
+            });
+        }
     }
 
 });
