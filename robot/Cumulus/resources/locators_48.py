@@ -257,7 +257,7 @@ npsp_lex_locators={
         'form_object_dropdown':'//*[@data-qa-locator="{}"]//button',
         'object_field_checkbox':'//*[@data-qa-locator="{}"]//span[@class="slds-checkbox_faux"]',
         },
-    'crollups':{
+    'crlps':{
         'new_button': '//button[text() = "{}"]',
         'select_locator': "//select[@name ='{}']",
         'success_toast': "//div[contains(@class,'slds-notify.slds-notify_toast,slds-theme_success')]",
