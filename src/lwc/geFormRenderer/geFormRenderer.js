@@ -1042,6 +1042,7 @@ export default class GeFormRenderer extends NavigationMixin(LightningElement) {
             if (isNotEmpty(fieldWrapper)) {
                 diRecord[fieldWrapper.Source_Field_API_Name] = value;
             }
+        }
 
         // Include any fields from a user selected donation, if
         // those fields are not already on the diRecord
